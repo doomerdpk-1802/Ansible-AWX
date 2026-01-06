@@ -7,3 +7,27 @@ spec:
   service_type: nodeport
   nodeport_port: 30080
   postgres_storage_class: standard
+
+  web_resource_requirements:
+    requests:
+      cpu: "200m"
+      memory: "512Mi"
+    limits:
+      cpu: "500m"
+      memory: "1Gi"
+
+  task_resource_requirements:
+    requests:
+      cpu: "300m"
+      memory: "768Mi"
+    limits:
+      cpu: "700m"
+      memory: "1.5Gi"
+
+  postgres_resource_requirements:
+    requests:
+      cpu: "100m"
+      memory: "256Mi"
+    limits:
+      cpu: "300m"
+      memory: "512Mi"
