@@ -34,7 +34,7 @@ kind version
 ```
 
 ```bash
-kind create cluster --config awx_cluster.yml -n awx
+kind create cluster --name awx-cluster --config awx.yml --image kindest/node:v1.29.4
 k get nodes
 k apply -k github.com/ansible/awx-operator/config/default?ref=2.19.1
 k get pods -n awx -w

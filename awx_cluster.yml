@@ -5,5 +5,3 @@ nodes:
     extraPortMappings:
       - containerPort: 30080
         hostPort: 30080
-  - role: worker
-  - role: worker
