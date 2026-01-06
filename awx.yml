@@ -6,7 +6,11 @@ metadata:
 spec:
   service_type: nodeport
   nodeport_port: 30080
+
   postgres_storage_class: standard
+  postgres_storage_requirements:
+    requests:
+      storage: 5Gi
 
   web_resource_requirements:
     requests:
