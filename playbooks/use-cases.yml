@@ -1,5 +1,5 @@
 - name: Ansible playbook to implement various use cases
-  hosts: 172.31.45.175
+  hosts: i-06043056efbe7ee47
   gather_facts: true
   become: true
 
