@@ -30,7 +30,6 @@ Verify:
 ```bash
 docker --version
 kind version
- version --client
 ```
 
 ```bash
