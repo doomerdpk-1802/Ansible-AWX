@@ -1,5 +1,5 @@
 - name: Ansible playbook to implement various use cases
-  hosts: AWS_EC2_Projects
+  hosts: 172.31.45.175
   gather_facts: true
   become: true
 
