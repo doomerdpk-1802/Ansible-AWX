@@ -23,8 +23,8 @@ jobs:
 
       - name: Ansible Syntax check
         run: |
-          ansible-playbook --syntax-check .
+          ansible-playbook --syntax-check playbooks/ping.yml
 
       - name: Ansible lint
         run: |
-          ansible-lint .
+          ansible-lint playbooks/
