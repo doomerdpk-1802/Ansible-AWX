@@ -1,0 +1,23 @@
+- name: Ansible playbook to implement various use cases
+  hosts: localhost
+  gather_facts: no
+  # Use sudo for tasks that need root privileges.
+  become: true
+
+  tasks:
+    
+    # 1. Install Packages
+    - name: Install Packages
+      Package:
+       name:
+         - vim
+         - curl
+         - nginx
+       state: present
+
+    # 2. Ensure service is enabled and started at boot
+    - name: Enable and start nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: true
