@@ -1,0 +1,51 @@
+- name: Install Packages
+  ansible.builtin.package:
+    name:
+      - vim
+      - curl
+      - nginx
+    state: present
+  tags: ["packages","nginx"]
+
+- name: Enable and start nginx service
+  ansible.builtin.service:
+    name: nginx
+    state: started
+    enabled: true
+  tags: ["service","nginx"]
+
+- name: Create an user on the host
+  ansible.builtin.user:
+    name: awx_user
+    shell: /bin/bash
+    state: present
+  tags: ["user"]
+
+- name: Create a file containing a welcome message
+  ansible.builtin.copy:
+    dest: /etc/motd
+    content: "Welcome to this server! This is managed by AWX"
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+  tags: ["user","file"]
+
+- name: Create a directory for application data
+  ansible.builtin.file:
+    path: /opt/awx_app
+    state: directory
+    owner: awx_user
+    group: awx_user
+    mode: u=rwx,g=rx,o=rx
+  tags: ["user","directory"]
+
+- name: Create an empty log file
+  ansible.builtin.file:
+    path: /opt/awx_app/app.log
+    state: touch
+    owner: awx_user
+    group: awx_user
+    mode: u=rw,g=r,o=
+  tags: ["user","file"]
+
+
