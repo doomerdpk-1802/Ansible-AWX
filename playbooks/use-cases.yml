@@ -5,16 +5,16 @@
 
   tasks:
     - name: Install Required Packages and start nginx service
-      roles:
-       - common
+      ansible.builtin.include_role:
+        name: common
 
     - name: Perform user and file related configurations
-      roles:
-       - users
+      ansible.builtin.include_role:
+        name: users
 
     - name: Perform webserver related configurations
-      roles:
-       - webservers
+      ansible.builtin.include_role:
+        name: webservers
 
   handlers:
     - name: Reload nginx
@@ -22,3 +22,4 @@
         name: nginx
         state: reloaded
         
+
