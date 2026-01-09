@@ -10,3 +10,4 @@
         section: server
         option: port
         value: "8080"
+        mode: u=rw,g=r,o=r
