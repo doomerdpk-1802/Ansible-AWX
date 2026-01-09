@@ -53,5 +53,3 @@
         group: awx_user
         mode: u=rw,g=r,o=
       tags: ["user", "file"]
-
-
