@@ -27,7 +27,7 @@
     - name: Create a file containing a welcome message
       ansible.builtin.copy:
         dest: /etc/motd
-        content: "Welcome to this server! This is managed by AWX"  
+        content: "Welcome to this server! This is managed by AWX"
         owner: root
         group: root
         mode: u=rw,g=r,o=r
