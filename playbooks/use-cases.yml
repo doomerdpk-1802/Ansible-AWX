@@ -73,7 +73,7 @@
         mode: "0644"
       notify: Reload nginx
 
-    - name: Reload nginx service
+    - name: Reload nginx
       ansible.builtin.service:
         name: nginx
         state: reloaded
