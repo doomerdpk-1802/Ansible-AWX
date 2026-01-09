@@ -1,0 +1,12 @@
+- name: Testing Ansible Collections implementation
+  hosts: i-06043056efbe7ee47
+  gather_facts: true
+  become: true
+
+  tasks:
+    - name: Manage a line in an INI file
+      community.general.ini_file:
+        path: /opt/awx_app/config.ini
+        section: server
+        option: port
+        value: "8080"
