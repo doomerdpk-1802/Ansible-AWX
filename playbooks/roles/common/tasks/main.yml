@@ -1,2 +1,13 @@
----
-# tasks file for common
+- name: Install Packages
+  ansible.builtin.package:
+    name:
+      - vim
+      - curl
+      - nginx
+    state: present
+
+- name: Enable and start nginx service
+  ansible.builtin.service:
+    name: nginx
+    state: started
+    enabled: true

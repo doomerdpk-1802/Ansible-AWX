@@ -1,2 +1,29 @@
----
-# tasks file for users
+- name: Create an user on the host
+  ansible.builtin.user:
+    name: awx_user
+    shell: /bin/bash
+    state: present
+
+- name: Create a file containing a welcome message
+  ansible.builtin.copy:
+    dest: /etc/motd
+    content: "Welcome to this server! This is managed by AWX"
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+
+- name: Create a directory for application data
+  ansible.builtin.file:
+    path: /opt/awx_app
+    state: directory
+    owner: awx_user
+    group: awx_user
+    mode: u=rwx,g=rx,o=rx
+
+- name: Create an empty log file
+  ansible.builtin.file:
+    path: /opt/awx_app/app.log
+    state: touch
+    owner: awx_user
+    group: awx_user
+    mode: u=rw,g=r,o=
