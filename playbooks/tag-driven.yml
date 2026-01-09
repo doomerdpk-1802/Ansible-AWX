@@ -3,7 +3,7 @@
   gather_facts: true
   become: true
 
-  tasks: 
+  tasks:
     - name: Install Packages
       ansible.builtin.package:
         name:
@@ -11,14 +11,14 @@
           - curl
           - nginx
         state: present
-      tags: ["packages","nginx"]
+      tags: ["packages", "nginx"]
 
     - name: Enable and start nginx service
       ansible.builtin.service:
         name: nginx
         state: started
         enabled: true
-      tags: ["service","nginx"]
+      tags: ["service", "nginx"]
 
     - name: Create an user on the host
       ansible.builtin.user:
@@ -34,7 +34,7 @@
         owner: root
         group: root
         mode: u=rw,g=r,o=r
-      tags: ["user","file"]
+      tags: ["user", "file"]
 
     - name: Create a directory for application data
       ansible.builtin.file:
@@ -43,7 +43,7 @@
         owner: awx_user
         group: awx_user
         mode: u=rwx,g=rx,o=rx
-      tags: ["user","directory"]
+      tags: ["user", "directory"]
 
     - name: Create an empty log file
       ansible.builtin.file:
@@ -52,6 +52,6 @@
         owner: awx_user
         group: awx_user
         mode: u=rw,g=r,o=
-      tags: ["user","file"]
+      tags: ["user", "file"]
 
 
