@@ -1,6 +1,1 @@
----
-- name: Test Play under users 
-  hosts: localhost
-    remote_user: root
-    roles:
-      - webservers
+
