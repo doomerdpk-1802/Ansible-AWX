@@ -17,3 +17,30 @@
         name: nginx
         state: started
         enabled: true
+
+    - name: create an user on the host
+      ansible.builtin.user:
+        name: awx_user
+        shell: /bin/bash
+        state: present
+
+    - name: Create a file containing a welcome message
+      ansible.builtin.copy:
+        dest: /etc/motd
+        content: "Welcome to this server! This is managed by AWX"
+
+    - name: Create a directory for application data
+      ansible.builtin.file:
+        path: /opt/awx_app
+        state: directory
+        owner: awx_user
+        group: awx_user
+        mode: '0755'
+
+    - name: create an empty log file
+      ansible.builtin.file:
+        path: /opt/awx_app/app.log
+        state: touch
+        owner: awx_user
+        group: awx_user
+        mode: '0644'
