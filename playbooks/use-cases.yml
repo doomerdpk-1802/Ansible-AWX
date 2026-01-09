@@ -68,7 +68,7 @@
       vars:
         app_port: 8080
       ansible.builtin.template:
-        src: ./templates/nginx.conf.j2
+        src: templates/nginx.conf.j2
         dest: /etc/nginx/conf.d/awx_app.conf
       notify: Reload nginx
 
@@ -76,5 +76,3 @@
       ansible.builtin.service:
         name: nginx
         state: reloaded
-
-
