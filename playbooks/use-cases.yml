@@ -18,7 +18,7 @@
         state: started
         enabled: true
 
-    - name: create an user on the host
+    - name: Create an user on the host
       ansible.builtin.user:
         name: awx_user
         shell: /bin/bash
@@ -35,12 +35,12 @@
         state: directory
         owner: awx_user
         group: awx_user
-        mode: '0755'
+        mode: u=rwx,g=rx,o=rx
 
-    - name: create an empty log file
+    - name: Create an empty log file
       ansible.builtin.file:
         path: /opt/awx_app/app.log
         state: touch
         owner: awx_user
         group: awx_user
-        mode: '0644'
+        mode: u=rw,g=r,o=r
